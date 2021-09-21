@@ -55,23 +55,11 @@
                     </div>
                     <div class="lista-utenti">
                         <ul class="utenti">
-                            <li class="utente active">
+                            <li v-for="(contact, index) in contacts" :key="index" class="utente">
                                 <div class="avatar">
-                                    <img src="images/avatar_1.jpg" alt="Avatar">
+                                    <img :src="`images/avatar${contact.avatar}.jpg`" alt="Avatar">
                                 </div>
-                                <div class="name">Michele</div>
-                            </li>
-                            <li class="utente">
-                                <div class="avatar">
-                                    <img src="images/avatar_2.jpg" alt="Avatar">
-                                </div>
-                                <div class="name">Antonio</div>
-                            </li>
-                            <li class="utente">
-                                <div class="avatar">
-                                    <img src="images/avatar_3.jpg" alt="Avatar">
-                                </div>
-                                <div class="name">Roberto</div>
+                                <div class="name">{{contact.name}}</div>
                             </li>
                         </ul>
                     </div>
