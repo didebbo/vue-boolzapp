@@ -4,6 +4,8 @@ const app = new Vue(
         data: {
             currentContact: 0,
             currentMessage: "",
+            searchInput: "",
+
             messages: [
                 "Sì",
                 "È così.",
@@ -190,6 +192,11 @@ const app = new Vue(
                 },
             ]
         },
+        mounted: function () {
+            setInterval(() => {
+                this.filterUsers();
+            }, 0);
+        },
         methods: {
             isCurrentContact: function (index) {
                 return index == this.currentContact;
@@ -218,6 +225,17 @@ const app = new Vue(
                         }
                     );
                 }, 1000 * Math.floor(Math.random() * 10 + 1));
+            },
+            filterUsers: function () {
+                this.contacts.forEach((contact) => {
+                    if (this.searchInput.length <= 0) contact.visible = true;
+                    else {
+                        for (let i = 0; i < this.searchInput.length; i++) {
+                            if (contact.name.includes(this.searchInput[i].toLowerCase()) || contact.name.includes(this.searchInput[i].toUpperCase())) contact.visible = true;
+                            else contact.visible = false;
+                        }
+                    }
+                });
             }
         }
     }
