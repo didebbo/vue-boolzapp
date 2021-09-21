@@ -42,7 +42,7 @@ body {
         }
 
         .sidebar {
-            width: 30%;
+            min-width: 30%;
 
             .topbar {
                 display: flex;
@@ -91,7 +91,7 @@ body {
                     padding-left: 40px;
 
                     > * {
-                        margin: 0 0.2em;
+                        margin: 0 0.4em;
                         cursor: pointer;
                         color:#b1b1b1;
                     }
@@ -212,6 +212,70 @@ body {
                                 }
                             }
                         }
+                    }
+                }
+            }
+        }
+
+        .main {
+            width: 100%;
+
+            .topbar {
+                display: flex;
+                align-items: center;
+
+                > * {
+                    // border: 0.1em solid red;
+                    padding: 5px 10px;
+                }
+
+                .user {
+                    display: flex;
+                    align-items: center;
+                    flex-grow: 1;
+
+                    > * {
+                        margin: 0 0.2em;
+                    }
+
+                    .avatar {
+                        max-width: 48px;
+                        max-height: 48px;
+                        min-width: 24px;
+                        min-height: 24px;
+                        overflow: hidden;
+                        border-radius: 100%;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            object-position: center;
+                        }
+                    }
+
+                    .content {
+
+                        .name {
+                            font-size: 0.8em;
+                        }
+
+                        .last-see {
+                            font-size: 0.6em;
+                            opacity: 0.6;
+                        }
+                    }
+                }
+
+                .actions {
+                    display: flex;
+                    justify-content: flex-end;
+                    padding-left: 40px;
+
+                    > * {
+                        margin: 0 0.4em;
+                        cursor: pointer;
+                        color:#b1b1b1;
                     }
                 }
             }
