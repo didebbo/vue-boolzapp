@@ -89,6 +89,9 @@ const app = new Vue(
         methods: {
             isCurrentContact: function (index) {
                 return index == this.currentContact;
+            },
+            getMessageStatus: function (message) {
+                return message.status;
             }
         }
     }

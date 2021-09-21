@@ -310,7 +310,7 @@ body {
                         background-color: #fff;
                     }
 
-                    &.sended {
+                    &.sent {
                         align-self: flex-end;
                         background-color: #d5f9ba;
                     }
@@ -328,6 +328,7 @@ body {
                         align-self: flex-end;
                         font-size: 0.6em;
                         opacity: 0.4;
+                        margin-left: 100px;
                     }
                 }
             }

@@ -89,46 +89,13 @@
                     </div>
                 </div>
                 <div class="content">
-                    <div class="push sended">
+                    <div v-for="(message, index) in contacts[currentContact].messages" class="push"
+                        :class="getMessageStatus(message)">
                         <div class="text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            {{message.message}}
                         </div>
                         <div class="at">
-                            10/09/2021
-                        </div>
-                    </div>
-                    <div class="push received">
-                        <div class="text">
-                            Consequatur aliquid eius debitis
-                            nam amet quia praesentium.
-                        </div>
-                        <div class="at">
-                            10/09/2021
-                        </div>
-                    </div>
-                    <div class="push sended">
-                        <div class="text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        </div>
-                        <div class="at">
-                            10/09/2021
-                        </div>
-                    </div>
-                    <div class="push sended">
-                        <div class="text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        </div>
-                        <div class="at">
-                            10/09/2021
-                        </div>
-                    </div>
-                    <div class="push received">
-                        <div class="text">
-                            Consequatur aliquid eius debitis
-                            nam amet quia praesentium.
-                        </div>
-                        <div class="at">
-                            10/09/2021
+                            {{message.date}}
                         </div>
                     </div>
                 </div>
