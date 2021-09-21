@@ -205,7 +205,8 @@ const app = new Vue(
                 return message.status;
             },
             sendMessage: function () {
-                this.contacts[this.currentContact].messages.push(
+                const contact = this.currentContact;
+                this.contacts[contact].messages.push(
                     {
                         date: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
                         message: this.currentMessage,
@@ -213,11 +214,11 @@ const app = new Vue(
                     }
                 );
                 this.currentMessage = "";
-                this.replayMessage();
+                this.replayMessage(contact);
             },
-            replayMessage: function () {
+            replayMessage: function (contact) {
                 setTimeout(() => {
-                    this.contacts[this.currentContact].messages.push(
+                    this.contacts[contact].messages.push(
                         {
                             date: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
                             message: this.messages[Math.floor(Math.random() * this.messages.length)],
