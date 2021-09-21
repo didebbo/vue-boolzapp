@@ -233,10 +233,8 @@ const app = new Vue(
                 this.contacts.forEach((contact) => {
                     if (this.searchInput.length <= 0) contact.visible = true;
                     else {
-                        for (let i = 0; i < this.searchInput.length; i++) {
-                            if (contact.name.includes(this.searchInput[i].toLowerCase()) || contact.name.includes(this.searchInput[i].toUpperCase())) contact.visible = true;
-                            else contact.visible = false;
-                        }
+                        if (contact.name.includes(this.searchInput)) contact.visible = true;
+                        else contact.visible = false;
                     }
                 });
             }
