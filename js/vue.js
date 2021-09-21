@@ -3,6 +3,7 @@ const app = new Vue(
         el: "#root",
         data: {
             currentContact: 0,
+            currentMessage: "",
             contacts: [
                 {
                     name: 'Michele',
@@ -92,6 +93,16 @@ const app = new Vue(
             },
             getMessageStatus: function (message) {
                 return message.status;
+            },
+            sendMessage: function () {
+                this.contacts[this.currentContact].messages.push(
+                    {
+                        date: '10/01/2020 15:50:00',
+                        message: this.currentMessage,
+                        status: 'sent'
+                    }
+                );
+                this.currentMessage = "";
             }
         }
     }

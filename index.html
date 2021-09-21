@@ -101,7 +101,8 @@
                 </div>
                 <div class="bottombar">
                     <i class="far fa-smile"></i>
-                    <input type="text" placeholder="Scrivi un messaggio...">
+                    <input type="text" v-model="currentMessage" placeholder="Scrivi un messaggio..."
+                        @keyup.enter="sendMessage">
                     <i class="fas fa-microphone"></i>
                 </div>
             </div>
