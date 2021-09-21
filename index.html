@@ -55,7 +55,8 @@
                     </div>
                     <div class="lista-utenti">
                         <ul class="utenti">
-                            <li v-for="(contact, index) in contacts" :key="index" class="utente">
+                            <li v-for="(contact, index) in contacts" :key="index" class="utente"
+                                :class="{active: isCurrentContact(index)}">
                                 <div class="avatar">
                                     <img :src="`images/avatar${contact.avatar}.jpg`" alt="Avatar">
                                 </div>

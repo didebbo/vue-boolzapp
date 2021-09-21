@@ -2,6 +2,7 @@ const app = new Vue(
     {
         el: "#root",
         data: {
+            currContact: 0,
             contacts: [
                 {
                     name: 'Michele',
@@ -86,8 +87,8 @@ const app = new Vue(
             ]
         },
         methods: {
-            getDebug: function () {
-                return this.debug;
+            isCurrentContact: function (index) {
+                return index == this.currContact;
             }
         }
     }
