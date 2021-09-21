@@ -195,6 +195,8 @@ const app = new Vue(
         mounted: function () {
             setInterval(() => {
                 this.filterUsers();
+                const chat = document.getElementById("chat");
+                chat.scrollTop = chat.scrollHeight;
             }, 0);
         },
         methods: {
