@@ -284,6 +284,42 @@ body {
                     }
                 }
             }
+
+            > .content {
+                flex-grow: 1;
+                // border: 0.2em solid red;
+                background-image: url("../images/mine.jpg");
+                background-attachment: fixed;
+                background-repeat: repeat;
+                background-position: center;
+            }
+
+            .bottombar {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                // border: 0.2em solid blue;
+                padding: 0.5em;
+                background-color: #f3eeea;
+                display: flex;
+
+                > * {
+                    margin: 0 0.5em;
+                    cursor: pointer;
+                }
+
+                i {
+                    color: #595f62;
+                    font-size: 1.2em;
+                }
+
+                input {
+                    flex-grow: 1;
+                    padding: 0.4em;
+                    border: none;
+                    cursor: auto;
+                }
+            }
         }
     }
 }
