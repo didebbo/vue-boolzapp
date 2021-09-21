@@ -287,6 +287,8 @@ body {
 
             > .content {
                 // border: 0.2em solid red;
+                display: flex;
+                flex-direction: column;
                 flex-grow: 1;
                 overflow-y: auto;
                 overflow-x: hidden;
@@ -294,6 +296,39 @@ body {
                 background-attachment: fixed;
                 background-repeat: repeat;
                 background-position: center;
+
+                .push {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 0.5em 1em;
+                    // width: 300px;
+                    border-radius: 0.5em;
+
+                    &.received {
+                        align-self: flex-start;
+                        background-color: #fff;
+                    }
+
+                    &.sended {
+                        align-self: flex-end;
+                        background-color: #d5f9ba;
+                    }
+
+                    > * {
+                        // border: 0.2em solid red;
+                        margin: 0.5em 1em;
+                    }
+
+                    .text {
+                        font-size: 0.7em;
+                    }
+
+                    .at {
+                        align-self: flex-end;
+                        font-size: 0.6em;
+                        opacity: 0.4;
+                    }
+                }
             }
 
             .bottombar {
