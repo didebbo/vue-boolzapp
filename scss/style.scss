@@ -8,3 +8,21 @@ body, input, button {
     font-family: 'Lato', sans-serif;
     font-size: 3vh;
 }
+
+body {
+    height: 100vh;
+    background-image: linear-gradient(to bottom, #009688 0px 100px, #d7dbd6 0px 100%);
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    .container {
+        width: (100% / 1.2);
+        height: (100% / 1.1);
+        background-color: #eaeaea;
+    }
+}
