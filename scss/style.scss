@@ -42,7 +42,7 @@ body {
         }
 
         .sidebar {
-            min-width: 30%;
+            width: 30%;
 
             .topbar {
                 display: flex;
@@ -99,7 +99,10 @@ body {
             }
 
             .content {
+                display: flex;
+                flex-direction: column;
                 // border: 0.2em solid red;
+                overflow: hidden;
 
                 .centro-notifiche {
                     display: flex;
@@ -164,6 +167,14 @@ body {
                             font-size: 0.8em;
                             padding: 0.2em;
                         }
+                    }
+                }
+
+                .lista-utenti {
+                    overflow: auto;
+                    // border: 0.2em solid blue;
+                    ul {
+                        // border: 0.2em solid red;
                     }
                 }
             }
