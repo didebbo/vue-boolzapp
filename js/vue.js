@@ -97,7 +97,7 @@ const app = new Vue(
             sendMessage: function () {
                 this.contacts[this.currentContact].messages.push(
                     {
-                        date: '10/01/2020 15:50:00',
+                        date: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('en-US', { hour12: false }),
                         message: this.currentMessage,
                         status: 'sent'
                     }
