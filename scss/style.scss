@@ -171,10 +171,47 @@ body {
                 }
 
                 .lista-utenti {
-                    overflow: auto;
-                    // border: 0.2em solid blue;
-                    ul {
+                    display: flex;
+                    flex-direction: column;
+                    // border: 0.2em solid red;
+                    flex-grow: 1;
+                    overflow: hidden;
+                    background-color: #fff;
+                    
+                    .utenti {
+                        flex-grow: 1;
+                        overflow-y: auto;
                         // border: 0.2em solid red;
+                        
+                        .utente {
+                            display: flex;
+                            align-items: center;
+                            padding: 0.5em;
+
+                            &.active {
+                                background-color: #e9ebeb;
+                            }
+
+                            > * {
+                                margin: 0 0.5em;
+                            }
+
+                            .avatar {
+                                max-width: 48px;
+                                max-height: 48px;
+                                min-width: 24px;
+                                min-height: 24px;
+                                overflow: hidden;
+                                border-radius: 100%;
+
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                    object-position: center;
+                                }
+                            }
+                        }
                     }
                 }
             }
