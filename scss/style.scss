@@ -108,7 +108,7 @@ body {
                     display: flex;
                     align-items: center;
                     background-color: #8edafc;
-                    padding: 1em 0.5em;
+                    padding: 0.5em;
 
                     > * {
                         margin: 0 0.2em;
@@ -210,6 +210,10 @@ body {
                                     object-fit: cover;
                                     object-position: center;
                                 }
+                            }
+
+                            .name {
+                                font-size: 0.8em;
                             }
                         }
                     }
