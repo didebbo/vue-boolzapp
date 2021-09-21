@@ -17,7 +17,7 @@ body {
 #root {
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding-top: 25px;
     height: 100%;
     cursor: default;
 
@@ -65,10 +65,9 @@ body {
                     }
 
                     .avatar {
-                        max-width: 48px;
-                        max-height: 48px;
-                        min-width: 24px;
-                        min-height: 24px;
+                        flex-shrink: 0;
+                        width: 48px;
+                        height: 48px;
                         overflow: hidden;
                         border-radius: 100%;
 
@@ -82,6 +81,7 @@ body {
 
                     .name {
                         font-size: 0.8em;
+                        white-space: nowrap;
                     }
                 }
 
@@ -239,10 +239,9 @@ body {
                     }
 
                     .avatar {
-                        max-width: 48px;
-                        max-height: 48px;
-                        min-width: 24px;
-                        min-height: 24px;
+                        flex-shrink: 0;
+                        width: 48px;
+                        height: 48px;
                         overflow: hidden;
                         border-radius: 100%;
 
@@ -258,11 +257,13 @@ body {
 
                         .name {
                             font-size: 0.8em;
+                            white-space: nowrap;
                         }
 
                         .last-see {
                             font-size: 0.6em;
                             opacity: 0.6;
+                            white-space: nowrap;
                         }
                     }
                 }
