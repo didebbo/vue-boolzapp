@@ -56,7 +56,7 @@
                     <div class="lista-utenti">
                         <ul class="utenti">
                             <li v-for="(contact, index) in contacts" :key="index" class="utente"
-                                :class="{active: isCurrentContact(index)}">
+                                :class="{active: isCurrentContact(index)}" @click="currentContact = index">
                                 <div class="avatar">
                                     <img :src="`images/avatar${contact.avatar}.jpg`" alt="Avatar">
                                 </div>
@@ -70,11 +70,11 @@
                 <div class="topbar">
                     <div class="user">
                         <div class="avatar">
-                            <img src="images/avatar_1.jpg" alt="Michele">
+                            <img :src="`images/avatar${contacts[currentContact].avatar}.jpg`" alt="Michele">
                         </div>
                         <div class="content">
                             <div class="name">
-                                Michele
+                                {{contacts[currentContact].name}}
                             </div>
                             <div class="last-see">
                                 Ultimo accesso oggi alle
