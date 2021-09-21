@@ -181,6 +181,7 @@ body {
                     .utenti {
                         flex-grow: 1;
                         overflow-y: auto;
+                        overflow-x: hidden;
                         // border: 0.2em solid red;
                         
                         .utente {
@@ -197,10 +198,9 @@ body {
                             }
 
                             .avatar {
-                                max-width: 48px;
-                                max-height: 48px;
-                                min-width: 24px;
-                                min-height: 24px;
+                                flex-shrink: 0;
+                                width: 48px;
+                                height: 48px;
                                 overflow: hidden;
                                 border-radius: 100%;
 
@@ -286,8 +286,10 @@ body {
             }
 
             > .content {
-                flex-grow: 1;
                 // border: 0.2em solid red;
+                flex-grow: 1;
+                overflow-y: auto;
+                overflow-x: hidden;
                 background-image: url("../images/mine.jpg");
                 background-attachment: fixed;
                 background-repeat: repeat;
