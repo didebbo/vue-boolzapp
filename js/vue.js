@@ -231,11 +231,8 @@ const app = new Vue(
             },
             filterUsers: function () {
                 this.contacts.forEach((contact) => {
-                    if (this.searchInput.length <= 0) contact.visible = true;
-                    else {
-                        if (contact.name.includes(this.searchInput)) contact.visible = true;
-                        else contact.visible = false;
-                    }
+                    if (contact.name.includes(this.searchInput)) contact.visible = true;
+                    else contact.visible = false;
                 });
             }
         }
