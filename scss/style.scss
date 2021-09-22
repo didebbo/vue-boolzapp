@@ -222,7 +222,7 @@ body {
         }
 
         .main {
-            width: 100%;
+            flex-grow: 1;
 
             .topbar {
                 display: flex;
