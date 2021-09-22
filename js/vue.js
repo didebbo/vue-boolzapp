@@ -5,6 +5,10 @@ const app = new Vue(
             currentContact: 0,
             currentMessage: "",
             searchInput: "",
+            showMenu: {
+                status: false,
+                index: 0
+            },
 
             messages: [
                 "Sì",
@@ -236,6 +240,12 @@ const app = new Vue(
                     chat.scrollTop = chat.scrollHeight;
                     console.log(chat.scrollHeight, chat.scrollTop);
                 }, 0);
+            },
+            openMenu: function (index) {
+                console.log(index);
+                if (this.showMenu.index == index) this.showMenu.status = !this.showMenu.status;
+                else this.showMenu.status = true;
+                if (this.showMenu.status) this.showMenu.index = index;
             }
         }
     }

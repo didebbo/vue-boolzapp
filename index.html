@@ -92,12 +92,22 @@
                 </div>
                 <div id="chat" class="content">
                     <div v-for="(message, index) in contacts[currentContact].messages" class="push"
-                        :class="getMessageStatus(message)">
+                        :class="getMessageStatus(message)" @click="openMenu(index)">
                         <div class="text">
                             {{message.message}}
                         </div>
                         <div class="at">
                             {{message.date}}
+                        </div>
+                        <div v-if="showMenu.status && showMenu.index == index" class="messageMenu">
+                            <ul>
+                                <li>
+                                    Info Messaggio
+                                </li>
+                                <li>
+                                    Elimina messaggio
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

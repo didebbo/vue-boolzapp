@@ -292,6 +292,7 @@ body {
                 background-position: center;
 
                 .push {
+                    position: relative;
                     display: flex;
                     flex-direction: column;
                     margin: 0.5em 1em;
@@ -321,6 +322,38 @@ body {
                         font-size: 0.6em;
                         opacity: 0.4;
                         margin-left: 5em;
+                    }
+
+                    .messageMenu {
+                        // display: none;
+                        position: absolute;
+                        background-color: #fff;
+                        // width: 60%;
+                        top: 1em;
+                        right: -1em;
+                        z-index: 2;
+
+                        // &.show {
+                        //     display: block;
+                        // }
+
+
+                        > ul {
+                            list-style: none;
+                            font-size: 0.8em;
+                            border: 0.1em solid #e9ebeb;
+
+                            li {
+                                display: flex;
+                                justify-content: center;
+                                padding: 0.5em 1em;
+                                cursor: pointer;
+
+                                &:not(:last-child) {
+                                    border-bottom: 0.1em solid #e9ebeb;
+                                }
+                            }
+                        }
                     }
                 }
             }
