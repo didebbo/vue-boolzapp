@@ -80,7 +80,11 @@
                                 {{contacts[currentContact].name}}
                             </div>
                             <div class="last-see">
-                                Ultimo accesso oggi alle
+                                {{
+                                contacts[currentContact].lastSee =='Online' ?
+                                contacts[currentContact].lastSee :
+                                'Ultimo accesso: ' + contacts[currentContact].lastSee
+                                }}
                             </div>
                         </div>
                     </div>

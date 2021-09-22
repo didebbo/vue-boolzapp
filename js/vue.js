@@ -118,6 +118,7 @@ const app = new Vue(
                     name: 'Michele',
                     avatar: '_1',
                     visible: true,
+                    lastSee: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -140,15 +141,16 @@ const app = new Vue(
                     name: 'Fabio',
                     avatar: '_2',
                     visible: true,
+                    lastSee: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
                     messages: [{
                         date: '20/03/2020 16:30:00',
                         message: 'Ciao come stai?',
-                        status: 'sent'
+                        status: 'received'
                     },
                     {
                         date: '20/03/2020 16:30:55',
                         message: 'Bene grazie! Stasera ci vediamo?',
-                        status: 'received'
+                        status: 'sent'
                     },
                     {
                         date: '20/03/2020 16:35:00',
@@ -161,6 +163,7 @@ const app = new Vue(
                     name: 'Samuele',
                     avatar: '_3',
                     visible: true,
+                    lastSee: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
                     messages: [{
                         date: '28/03/2020 10:10:40',
                         message: 'La Marianna va in campagna',
@@ -182,6 +185,7 @@ const app = new Vue(
                     name: 'Luisa',
                     avatar: '_4',
                     visible: true,
+                    lastSee: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
                     messages: [{
                         date: '10/01/2020 15:30:55',
                         message: 'Lo sai che ha aperto una nuova pizzeria?',
@@ -218,14 +222,20 @@ const app = new Vue(
             },
             replayMessage: function (contact) {
                 setTimeout(() => {
-                    this.contacts[contact].messages.push(
-                        {
-                            date: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
-                            message: this.messages[Math.floor(Math.random() * this.messages.length)],
-                            status: 'received'
-                        }
-                    );
-                    this.scrollToBottom();
+                    this.contacts[contact].lastSee = "Online",
+                        setTimeout(() => {
+                            this.contacts[contact].messages.push(
+                                {
+                                    date: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
+                                    message: this.messages[Math.floor(Math.random() * this.messages.length)],
+                                    status: 'received'
+                                }
+                            );
+                            setTimeout(() => {
+                                this.contacts[contact].lastSee = new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false });
+                            }, 1000 * Math.floor(Math.random() * 10 + 1));
+                            this.scrollToBottom();
+                        }, 1000 * Math.floor(Math.random() * 10 + 1));
                 }, 1000 * Math.floor(Math.random() * 10 + 1));
             },
             filterUsers: function () {
