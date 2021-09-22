@@ -11,7 +11,6 @@ body, input, button {
 
 body {
     height: 100vh;
-    background-image: linear-gradient(to bottom, #009688 0px 5em, #d7dbd6 0px 100%);
 }
 
 #root {
@@ -20,6 +19,8 @@ body {
     padding-top: 2em;
     height: 100%;
     cursor: default;
+    background-image: linear-gradient(to bottom, #009688 0px 5em, #d7dbd6 0px 100%);
+
 
     .container {
         display: flex;
@@ -386,4 +387,117 @@ body {
             }
         }
     }
+}
+
+#root.dark{
+    background-image: linear-gradient(to bottom, hsl(174, 100%, 9%) 0px 5em, hsl(108, 6%, 25%) 0px 100%);
+    color: #fff;
+
+    .container {
+        background-color: hsl(0, 0%, 28%);
+
+        .sidebar, .main {
+            
+            .topbar {
+                background-color: hsl(0, 0%, 22%);
+            }
+        }
+
+        .sidebar {
+
+            .topbar {
+                border-right: 0.1em solid hsl(0, 0%, 26%);
+
+                .actions {
+                    
+                    > * {
+                        color:#fff;
+                    }
+                }
+            }
+
+            .content {
+
+                .centro-notifiche {
+                    background-color: hsl(199, 95%, 27%);
+
+                    .centro-notifiche-icon {
+                        color: hsl(199, 95%, 27%);
+                    }
+
+                    .centro-notifiche-content {
+
+                        .centro-notifiche-content-body {
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                .ricerca-utente {
+
+                    .ricerca-utente-button {
+                        background-color: hsl(0, 0%, 20%);
+                        border: 0.1em solid hsl(0, 0%, 22%);
+                        color: #fff;
+                    }
+
+                    .ricerca-utente-input {
+                        border: 0.1em solid hsl(0, 0%, 22%);
+                        
+                        input {
+                            background-color: hsl(0, 0%, 20%);
+                            color: #fff;
+                        }
+                    }
+                }
+
+                .lista-utenti {
+                    background-color: hsl(0, 0%, 20%);
+
+                    .utenti {
+
+                        .utente {
+
+                            &.active {
+                                background-color: hsl(180, 5%, 22%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .main {
+
+            > .content {
+                background-color: hsl(0, 0%, 40%);
+                background-blend-mode: multiply;
+
+                .push {
+
+                    &.received {
+                        background-color: hsl(0, 0%, 20%);
+                    }
+
+                    &.sent {
+                        background-color: hsl(94, 4%, 25%);
+                    }
+                }
+            }
+
+            .bottombar {
+                background-color: hsl(27, 27%, 4%);
+
+                i {
+                    color: #fff;
+                }
+
+                input {
+                    background-color: hsl(0, 0%, 20%);
+                    color: #fff;
+                }
+            }
+        }
+    }
+    
 }

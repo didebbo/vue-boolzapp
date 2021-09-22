@@ -17,7 +17,7 @@
 
 <body>
 
-    <div id="root">
+    <div id="root" :class="{dark : darkMode}">
         <div class="container">
             <div class="sidebar">
                 <div class="topbar">
@@ -32,7 +32,7 @@
                     <div class="actions">
                         <i class="fas fa-circle-notch"></i>
                         <i class="fas fa-comment-alt"></i>
-                        <i class="fas fa-ellipsis-v"></i>
+                        <i class="fas fa-ellipsis-v" @click="toggleDarkMode"></i>
                     </div>
                 </div>
                 <div class="content">

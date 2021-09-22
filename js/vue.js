@@ -9,6 +9,7 @@ const app = new Vue(
                 status: false,
                 index: 0
             },
+            darkMode: false,
 
             messages: [
                 "Sì",
@@ -260,6 +261,9 @@ const app = new Vue(
             },
             deleteMessage: function (index) {
                 this.contacts[this.currentContact].messages.splice(index, 1);
+            },
+            toggleDarkMode: function () {
+                this.darkMode = !this.darkMode;
             }
         }
     }
