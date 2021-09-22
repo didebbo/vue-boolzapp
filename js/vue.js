@@ -194,7 +194,6 @@ const app = new Vue(
         },
         mounted: function () {
             setInterval(() => {
-                this.filterUsers();
                 const chat = document.getElementById("chat");
                 chat.scrollTop = chat.scrollHeight;
             }, 0);
@@ -234,7 +233,7 @@ const app = new Vue(
                     if (contact.name.includes(this.searchInput)) contact.visible = true;
                     else contact.visible = false;
                 });
-            }
+            },
         }
     }
 );
