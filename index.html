@@ -100,8 +100,8 @@
                         <div class="text">
                             {{message.message}}
                         </div>
-                        <div class="at">
-                            {{message.date}}
+                        <div class="at" :class="{seen : message.seen}">
+                            <i class="fas fa-check-double"></i>
                         </div>
                         <div v-if="showMenu.status && showMenu.index == index" class="messageMenu">
                             <ul>

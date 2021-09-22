@@ -121,17 +121,17 @@ const app = new Vue(
                     lastSee: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
                     messages: [
                         {
-                            date: '10/01/2020 15:30:55',
+                            seen: true,
                             message: 'Hai portato a spasso il cane?',
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 15:50:00',
+                            seen: true,
                             message: 'Ricordati di dargli da mangiare',
                             status: 'sent'
                         },
                         {
-                            date: '10/01/2020 16:15:22',
+                            seen: true,
                             message: 'Tutto fatto!',
                             status: 'received'
                         }
@@ -143,17 +143,17 @@ const app = new Vue(
                     visible: true,
                     lastSee: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
                     messages: [{
-                        date: '20/03/2020 16:30:00',
+                        seen: true,
                         message: 'Ciao come stai?',
                         status: 'received'
                     },
                     {
-                        date: '20/03/2020 16:30:55',
+                        seen: true,
                         message: 'Bene grazie! Stasera ci vediamo?',
                         status: 'sent'
                     },
                     {
-                        date: '20/03/2020 16:35:00',
+                        seen: true,
                         message: 'Mi piacerebbe ma devo andare a fare la spesa.',
                         status: 'received'
                     }
@@ -165,17 +165,17 @@ const app = new Vue(
                     visible: true,
                     lastSee: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
                     messages: [{
-                        date: '28/03/2020 10:10:40',
+                        seen: true,
                         message: 'La Marianna va in campagna',
                         status: 'received'
                     },
                     {
-                        date: '28/03/2020 10:20:10',
+                        seen: true,
                         message: 'Sicuro di non aver sbagliato chat?',
                         status: 'sent'
                     },
                     {
-                        date: '28/03/2020 16:15:22',
+                        seen: true,
                         message: 'Ah scusa!',
                         status: 'received'
                     }
@@ -187,12 +187,12 @@ const app = new Vue(
                     visible: true,
                     lastSee: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
                     messages: [{
-                        date: '10/01/2020 15:30:55',
+                        seen: true,
                         message: 'Lo sai che ha aperto una nuova pizzeria?',
                         status: 'sent'
                     },
                     {
-                        date: '10/01/2020 15:50:00',
+                        seen: true,
                         message: 'Si, ma preferirei andare al cinema',
                         status: 'received'
                     }
@@ -211,7 +211,7 @@ const app = new Vue(
                 const contact = this.currentContact;
                 this.contacts[contact].messages.push(
                     {
-                        date: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
+                        seen: false,
                         message: this.currentMessage,
                         status: 'sent'
                     }
@@ -224,18 +224,21 @@ const app = new Vue(
                 setTimeout(() => {
                     this.contacts[contact].lastSee = "Online",
                         setTimeout(() => {
-                            this.contacts[contact].messages.push(
-                                {
-                                    date: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
-                                    message: this.messages[Math.floor(Math.random() * this.messages.length)],
-                                    status: 'received'
-                                }
-                            );
+                            this.contacts[contact].messages[this.contacts[contact].messages.length - 1].seen = true;
                             setTimeout(() => {
-                                this.contacts[contact].lastSee = new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false });
+                                this.contacts[contact].messages.push(
+                                    {
+                                        seen: true,
+                                        message: this.messages[Math.floor(Math.random() * this.messages.length)],
+                                        status: 'received'
+                                    }
+                                );
+                                setTimeout(() => {
+                                    this.contacts[contact].lastSee = new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false });
+                                }, 1000 * Math.floor(Math.random() * 10 + 1));
+                                this.scrollToBottom();
                             }, 1000 * Math.floor(Math.random() * 10 + 1));
-                            this.scrollToBottom();
-                        }, 1000 * Math.floor(Math.random() * 10 + 1));
+                        }, 1000 * Math.floor(Math.random() * 5 + 1));
                 }, 1000 * Math.floor(Math.random() * 10 + 1));
             },
             filterUsers: function () {
