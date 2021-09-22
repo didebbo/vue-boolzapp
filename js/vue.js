@@ -192,12 +192,6 @@ const app = new Vue(
                 },
             ]
         },
-        mounted: function () {
-            setInterval(() => {
-                const chat = document.getElementById("chat");
-                chat.scrollTop = chat.scrollHeight;
-            }, 0);
-        },
         methods: {
             isCurrentContact: function (index) {
                 return index == this.currentContact;
@@ -214,6 +208,7 @@ const app = new Vue(
                         status: 'sent'
                     }
                 );
+                this.scrollToBottom();
                 this.currentMessage = "";
                 this.replayMessage(contact);
             },
@@ -226,6 +221,7 @@ const app = new Vue(
                             status: 'received'
                         }
                     );
+                    this.scrollToBottom();
                 }, 1000 * Math.floor(Math.random() * 10 + 1));
             },
             filterUsers: function () {
@@ -234,6 +230,13 @@ const app = new Vue(
                     else contact.visible = false;
                 });
             },
+            scrollToBottom: function () {
+                const chat = document.getElementById("chat");
+                setTimeout(() => {
+                    chat.scrollTop = chat.scrollHeight;
+                    console.log(chat.scrollHeight, chat.scrollTop);
+                }, 0);
+            }
         }
     }
 );
