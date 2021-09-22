@@ -104,14 +104,14 @@
                                 <li>
                                     Info Messaggio
                                 </li>
-                                <li>
+                                <li @click="deleteMessage(index)">
                                     Elimina messaggio
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="bottombar">
+                <div class=" bottombar">
                     <i class="far fa-smile"></i>
                     <input type="text" v-model="currentMessage" placeholder="Scrivi un messaggio..."
                         @keyup.enter="sendMessage">

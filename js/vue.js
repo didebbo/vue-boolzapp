@@ -238,14 +238,15 @@ const app = new Vue(
                 const chat = document.getElementById("chat");
                 setTimeout(() => {
                     chat.scrollTop = chat.scrollHeight;
-                    console.log(chat.scrollHeight, chat.scrollTop);
                 }, 0);
             },
             openMenu: function (index) {
-                console.log(index);
                 if (this.showMenu.index == index) this.showMenu.status = !this.showMenu.status;
                 else this.showMenu.status = true;
                 if (this.showMenu.status) this.showMenu.index = index;
+            },
+            deleteMessage: function (index) {
+                this.contacts[this.currentContact].messages.splice(index, 1);
             }
         }
     }
