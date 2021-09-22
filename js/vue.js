@@ -10,6 +10,7 @@ const app = new Vue(
                 index: 0
             },
             darkMode: false,
+            sentMessage: false,
 
             messages: [
                 "Sì",
@@ -201,6 +202,14 @@ const app = new Vue(
                 },
             ]
         },
+        mounted: function () {
+            setInterval(() => {
+                if (this.contacts[this.currentContact].lastSee != "Online") return;
+                this.contacts[this.currentContact].messages.forEach((message) => {
+                    message.seen = true;
+                });
+            }, 0);
+        },
         methods: {
             isCurrentContact: function (index) {
                 return index == this.currentContact;
@@ -225,8 +234,11 @@ const app = new Vue(
                 setTimeout(() => {
                     this.contacts[contact].lastSee = "Online",
                         setTimeout(() => {
-                            this.contacts[contact].messages[this.contacts[contact].messages.length - 1].seen = true;
+                            this.contacts[contact].messages.forEach((message) => {
+                                message.seen = true;
+                            });
                             setTimeout(() => {
+                                if (this.contacts[contact].lastSee != "Online") return;
                                 this.contacts[contact].messages.push(
                                     {
                                         seen: true,
