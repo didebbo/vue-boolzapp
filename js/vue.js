@@ -203,14 +203,6 @@ const app = new Vue(
                 },
             ]
         },
-        mounted: function () {
-            setInterval(() => {
-                if (this.contacts[this.currentContact].lastSee != "Online") return;
-                this.contacts[this.currentContact].messages.forEach((message) => {
-                    message.seen = true;
-                });
-            }, 0);
-        },
         methods: {
             isCurrentContact: function (index) {
                 return index == this.currentContact;
@@ -233,27 +225,33 @@ const app = new Vue(
             },
             replayMessage: function (contact) {
                 setTimeout(() => {
-                    this.contacts[contact].lastSee = "Online",
+                    this.contacts[contact].lastSee = "Online";
+                    setTimeout(() => {
+                        this.seeMessageLoop(contact);
                         setTimeout(() => {
-                            this.contacts[contact].messages.forEach((message) => {
-                                message.seen = true;
-                            });
+                            if (this.contacts[contact].lastSee != "Online") return;
+                            this.contacts[contact].messages.push(
+                                {
+                                    seen: true,
+                                    message: this.messages[Math.floor(Math.random() * this.messages.length)],
+                                    status: 'received'
+                                }
+                            );
                             setTimeout(() => {
-                                if (this.contacts[contact].lastSee != "Online") return;
-                                this.contacts[contact].messages.push(
-                                    {
-                                        seen: true,
-                                        message: this.messages[Math.floor(Math.random() * this.messages.length)],
-                                        status: 'received'
-                                    }
-                                );
-                                setTimeout(() => {
-                                    this.contacts[contact].lastSee = new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false });
-                                }, 1000 * Math.floor(Math.random() * 10 + 1));
-                                this.scrollToBottom();
+                                this.contacts[contact].lastSee = new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false });
                             }, 1000 * Math.floor(Math.random() * 10 + 1));
-                        }, 1000 * Math.floor(Math.random() * 5 + 1));
+                            this.scrollToBottom();
+                        }, 1000 * Math.floor(Math.random() * 10 + 1));
+                    }, 1000 * Math.floor(Math.random() * 5 + 1));
                 }, 1000 * Math.floor(Math.random() * 10 + 1));
+            },
+            seeMessageLoop: function (contact) {
+                const loop = setInterval(() => {
+                    if (this.contacts[this.currentContact].lastSee != "Online") clearInterval(loop);
+                    this.contacts[contact].messages.forEach((message) => {
+                        message.seen = true;
+                    });
+                }, 0);
             },
             filterUsers: function () {
                 this.contacts.forEach((contact) => {
