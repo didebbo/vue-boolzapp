@@ -58,7 +58,7 @@
                         <ul class="utenti">
                             <template v-for="(contact, index) in contacts">
                                 <li v-if="contact.visible" class="utente" :class="{active: isCurrentContact(index)}"
-                                    @click="currentContact = index">
+                                    @click="currentContact = index; showMenu = !showMenu">
                                     <div class="avatar">
                                         <img :src="`images/avatar${contact.avatar}.jpg`" alt="Avatar">
                                     </div>
