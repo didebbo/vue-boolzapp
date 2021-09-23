@@ -502,7 +502,7 @@ body {
     
 }
 
-@media screen and (orientation: portrait) {
+@media screen and (max-width: 768px) {
     #root {
 
         .container {
