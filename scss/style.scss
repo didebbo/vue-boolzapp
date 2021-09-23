@@ -43,7 +43,7 @@ body {
         }
 
         .sidebar {
-
+            
             .topbar {
                 display: flex;
                 align-items: center;
@@ -500,4 +500,16 @@ body {
         }
     }
     
+}
+
+@media screen and (orientation: portrait) {
+    #root {
+
+        .container {
+
+            .sidebar {
+                display: none;
+            }
+        }
+    }
 }
