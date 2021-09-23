@@ -24,7 +24,6 @@ body {
 
     .container {
         display: flex;
-        // justify-content: flex-end;
         width: (100% / 1.2);
         height: (100% / 1.1);
         background-color: #fafafa;
@@ -88,7 +87,6 @@ body {
                 .actions {
                     display: flex;
                     justify-content: flex-end;
-                    // margin-left: 2em;
 
                     > * {
                         margin: 0 0.4em;
@@ -170,7 +168,6 @@ body {
                 .lista-utenti {
                     display: flex;
                     flex-direction: column;
-                    // border: 0.2em solid red;
                     flex-grow: 1;
                     overflow: hidden;
                     background-color: #fff;
@@ -179,7 +176,6 @@ body {
                         flex-grow: 1;
                         overflow-y: auto;
                         overflow-x: hidden;
-                        // border: 0.2em solid red;
                         
                         .utente {
                             display: flex;
@@ -272,7 +268,6 @@ body {
                 .actions {
                     display: flex;
                     justify-content: flex-end;
-                    // margin-left: 2em;
 
                     > * {
                         margin: 0 0.4em;
@@ -311,7 +306,6 @@ body {
                     }
 
                     > * {
-                        // border: 0.2em solid red;
                         margin: 0.5em 1em;
                     }
 
@@ -364,7 +358,6 @@ body {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                // border: 0.2em solid blue;
                 padding: 0.5em;
                 background-color: #f3eeea;
                 display: flex;
@@ -510,42 +503,6 @@ body {
 
             .sidebar {
                 display: none;
-                
-                // .topbar {
-
-                //     .name {
-                //         display: none;
-                //     }
-
-                //     .actions {
-                //         display: none;
-                //     }
-                // }
-
-                // .content {
-                    
-                //     .centro-notifiche {
-                //         display: none;
-                //     }
-
-                //     .ricerca-utente {
-                //         display: none;
-                //     }
-
-                //     .lista-utenti {
-
-                //         .utenti {
-
-                //             .utente {
-                //                 padding: 0;
-
-                //                 .name {
-                //                     display: none;
-                //                 }
-                //             }
-                //         }
-                //     }
-                // }
             }
         }
     }
