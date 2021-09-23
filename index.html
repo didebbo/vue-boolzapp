@@ -73,7 +73,7 @@
                 <div class="topbar">
                     <div class="user">
                         <div class="avatar">
-                            <img :src="`images/avatar${contacts[currentContact].avatar}.jpg`" alt="Michele">
+                            <img :src="`images/avatar${contacts[currentContact].avatar}.jpg`" alt="Avatar">
                         </div>
                         <div class="content">
                             <div class="name">
@@ -91,7 +91,7 @@
                     <div class="actions">
                         <i class="fas fa-search"></i>
                         <i class="fas fa-paperclip"></i>
-                        <i class="fas fa-ellipsis-v"></i>
+                        <i class="fas fa-ellipsis-v" @click="toggleDarkMode"></i>
                     </div>
                 </div>
                 <div id="chat" class="content">

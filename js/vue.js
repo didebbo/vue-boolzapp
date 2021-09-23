@@ -140,6 +140,98 @@ const app = new Vue(
                     ],
                 },
                 {
+                    name: 'Michele',
+                    avatar: '_1',
+                    visible: true,
+                    lastSee: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
+                    messages: [
+                        {
+                            seen: true,
+                            message: 'Hai portato a spasso il cane?',
+                            status: 'sent'
+                        },
+                        {
+                            seen: true,
+                            message: 'Ricordati di dargli da mangiare',
+                            status: 'sent'
+                        },
+                        {
+                            seen: true,
+                            message: 'Tutto fatto!',
+                            status: 'received'
+                        }
+                    ],
+                },
+                {
+                    name: 'Michele',
+                    avatar: '_1',
+                    visible: true,
+                    lastSee: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
+                    messages: [
+                        {
+                            seen: true,
+                            message: 'Hai portato a spasso il cane?',
+                            status: 'sent'
+                        },
+                        {
+                            seen: true,
+                            message: 'Ricordati di dargli da mangiare',
+                            status: 'sent'
+                        },
+                        {
+                            seen: true,
+                            message: 'Tutto fatto!',
+                            status: 'received'
+                        }
+                    ],
+                },
+                {
+                    name: 'Michele',
+                    avatar: '_1',
+                    visible: true,
+                    lastSee: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
+                    messages: [
+                        {
+                            seen: true,
+                            message: 'Hai portato a spasso il cane?',
+                            status: 'sent'
+                        },
+                        {
+                            seen: true,
+                            message: 'Ricordati di dargli da mangiare',
+                            status: 'sent'
+                        },
+                        {
+                            seen: true,
+                            message: 'Tutto fatto!',
+                            status: 'received'
+                        }
+                    ],
+                },
+                {
+                    name: 'Michele',
+                    avatar: '_1',
+                    visible: true,
+                    lastSee: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
+                    messages: [
+                        {
+                            seen: true,
+                            message: 'Hai portato a spasso il cane?',
+                            status: 'sent'
+                        },
+                        {
+                            seen: true,
+                            message: 'Ricordati di dargli da mangiare',
+                            status: 'sent'
+                        },
+                        {
+                            seen: true,
+                            message: 'Tutto fatto!',
+                            status: 'received'
+                        }
+                    ],
+                },
+                {
                     name: 'Fabio',
                     avatar: '_2',
                     visible: true,
