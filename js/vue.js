@@ -5,7 +5,8 @@ const app = new Vue(
             currentContact: 0,
             currentMessage: "",
             searchInput: "",
-            showMenu: {
+            showMenu: false,
+            showMessageMenu: {
                 status: false,
                 index: 0
             },
@@ -116,98 +117,6 @@ const app = new Vue(
             ],
 
             contacts: [
-                {
-                    name: 'Michele',
-                    avatar: '_1',
-                    visible: true,
-                    lastSee: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
-                    messages: [
-                        {
-                            seen: true,
-                            message: 'Hai portato a spasso il cane?',
-                            status: 'sent'
-                        },
-                        {
-                            seen: true,
-                            message: 'Ricordati di dargli da mangiare',
-                            status: 'sent'
-                        },
-                        {
-                            seen: true,
-                            message: 'Tutto fatto!',
-                            status: 'received'
-                        }
-                    ],
-                },
-                {
-                    name: 'Michele',
-                    avatar: '_1',
-                    visible: true,
-                    lastSee: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
-                    messages: [
-                        {
-                            seen: true,
-                            message: 'Hai portato a spasso il cane?',
-                            status: 'sent'
-                        },
-                        {
-                            seen: true,
-                            message: 'Ricordati di dargli da mangiare',
-                            status: 'sent'
-                        },
-                        {
-                            seen: true,
-                            message: 'Tutto fatto!',
-                            status: 'received'
-                        }
-                    ],
-                },
-                {
-                    name: 'Michele',
-                    avatar: '_1',
-                    visible: true,
-                    lastSee: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
-                    messages: [
-                        {
-                            seen: true,
-                            message: 'Hai portato a spasso il cane?',
-                            status: 'sent'
-                        },
-                        {
-                            seen: true,
-                            message: 'Ricordati di dargli da mangiare',
-                            status: 'sent'
-                        },
-                        {
-                            seen: true,
-                            message: 'Tutto fatto!',
-                            status: 'received'
-                        }
-                    ],
-                },
-                {
-                    name: 'Michele',
-                    avatar: '_1',
-                    visible: true,
-                    lastSee: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false }),
-                    messages: [
-                        {
-                            seen: true,
-                            message: 'Hai portato a spasso il cane?',
-                            status: 'sent'
-                        },
-                        {
-                            seen: true,
-                            message: 'Ricordati di dargli da mangiare',
-                            status: 'sent'
-                        },
-                        {
-                            seen: true,
-                            message: 'Tutto fatto!',
-                            status: 'received'
-                        }
-                    ],
-                },
                 {
                     name: 'Michele',
                     avatar: '_1',
@@ -359,9 +268,9 @@ const app = new Vue(
                 }, 0);
             },
             openMenu: function (index) {
-                if (this.showMenu.index == index) this.showMenu.status = !this.showMenu.status;
-                else this.showMenu.status = true;
-                if (this.showMenu.status) this.showMenu.index = index;
+                if (this.showMessageMenu.index == index) this.showMessageMenu.status = !this.showMessageMenu.status;
+                else this.showMessageMenu.status = true;
+                if (this.showMessageMenu.status) this.showMessageMenu.index = index;
             },
             deleteMessage: function (index) {
                 this.contacts[this.currentContact].messages.splice(index, 1);

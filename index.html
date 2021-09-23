@@ -19,7 +19,7 @@
 
     <div id="root" :class="{dark : darkMode}">
         <div class="container">
-            <div class="sidebar">
+            <div class="sidebar" :class="{show : showMenu}">
                 <div class="topbar">
                     <div class="user">
                         <div class="avatar">
@@ -89,7 +89,7 @@
                         </div>
                     </div>
                     <div class="actions">
-                        <i class="fas fa-search"></i>
+                        <i class="fas fa-search" @click="showMenu = !showMenu"></i>
                         <i class="fas fa-paperclip"></i>
                         <i class="fas fa-ellipsis-v" @click="toggleDarkMode"></i>
                     </div>
@@ -103,7 +103,7 @@
                         <div class="at" :class="{seen : message.seen}">
                             <i class="fas fa-check-double"></i>
                         </div>
-                        <div v-if="showMenu.status && showMenu.index == index" class="messageMenu">
+                        <div v-if="showMessageMenu.status && showMessageMenu.index == index" class="messageMenu">
                             <ul>
                                 <li>
                                     Info Messaggio
