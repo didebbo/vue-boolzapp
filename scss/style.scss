@@ -69,6 +69,7 @@ body {
                         height: 2.5em;
                         overflow: hidden;
                         border-radius: 100%;
+                        margin: 0.25em;
 
                         img {
                             width: 100%;
@@ -517,8 +518,15 @@ body {
                 
                 .topbar {
 
-                    .name {
-                        display: none;
+                    .user {
+
+                        .avatar {
+                            margin: 0.25em 0;
+                        }
+    
+                        .name {
+                            display: none;
+                        }
                     }
 
                     .actions {
@@ -541,7 +549,7 @@ body {
                         .utenti {
 
                             .utente {
-                                padding: 0;
+                                padding: 0.5em 0;
 
                                 .name {
                                     display: none;
