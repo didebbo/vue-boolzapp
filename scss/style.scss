@@ -503,6 +503,54 @@ body {
     
 }
 
+@media screen and (max-width: 480px) {
+    #root {
+
+        .container {
+
+            .sidebar {
+                display: none;
+                
+                // .topbar {
+
+                //     .name {
+                //         display: none;
+                //     }
+
+                //     .actions {
+                //         display: none;
+                //     }
+                // }
+
+                // .content {
+                    
+                //     .centro-notifiche {
+                //         display: none;
+                //     }
+
+                //     .ricerca-utente {
+                //         display: none;
+                //     }
+
+                //     .lista-utenti {
+
+                //         .utenti {
+
+                //             .utente {
+                //                 padding: 0;
+
+                //                 .name {
+                //                     display: none;
+                //                 }
+                //             }
+                //         }
+                //     }
+                // }
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 768px) {
     #root {
 
