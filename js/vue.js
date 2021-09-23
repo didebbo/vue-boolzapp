@@ -243,7 +243,7 @@ const app = new Vue(
                                 this.contacts[contact].messages.push(
                                     {
                                         seen: true,
-                                        message: this.contacts[this.currentContact].name == "Samuele" ? "E' tutto pronto!" : this.messages[Math.floor(Math.random() * this.messages.length)],
+                                        message: this.messages[Math.floor(Math.random() * this.messages.length)],
                                         status: 'received'
                                     }
                                 );
