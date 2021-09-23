@@ -24,6 +24,7 @@ body {
 
     .container {
         display: flex;
+        // justify-content: flex-end;
         width: (100% / 1.2);
         height: (100% / 1.1);
         background-color: #fafafa;
@@ -508,7 +509,42 @@ body {
         .container {
 
             .sidebar {
-                display: none;
+                
+                .topbar {
+
+                    .name {
+                        display: none;
+                    }
+
+                    .actions {
+                        display: none;
+                    }
+                }
+
+                .content {
+                    
+                    .centro-notifiche {
+                        display: none;
+                    }
+
+                    .ricerca-utente {
+                        display: none;
+                    }
+
+                    .lista-utenti {
+
+                        .utenti {
+
+                            .utente {
+                                padding: 0;
+
+                                .name {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
