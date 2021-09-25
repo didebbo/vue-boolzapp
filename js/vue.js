@@ -203,12 +203,6 @@ const app = new Vue(
                 },
             ]
         },
-        mounted: function () {
-            setInterval(() => {
-                const chat = document.getElementById("chat");
-                chat.scrollTop = chat.scrollHeight;
-            }, 0);
-        },
         methods: {
             isCurrentContact: function (index) {
                 return index == this.currentContact;
@@ -225,6 +219,7 @@ const app = new Vue(
                         status: 'sent'
                     }
                 );
+                this.autoScrollMessage();
                 this.currentMessage = "";
                 this.replayMessage(contact);
             },
@@ -242,6 +237,7 @@ const app = new Vue(
                                     status: 'received'
                                 }
                             );
+                            this.autoScrollMessage();
                             setTimeout(() => {
                                 this.contacts[contact].lastSee = new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false });
                             }, 1000 * Math.floor(Math.random() * 10 + 1));
@@ -255,6 +251,12 @@ const app = new Vue(
                     this.contacts[contact].messages.forEach((message) => {
                         message.seen = true;
                     });
+                }, 0);
+            },
+            autoScrollMessage: function () {
+                setTimeout(() => {
+                    const chat = document.getElementById("chat");
+                    chat.scrollTop = chat.scrollHeight;
                 }, 0);
             },
             filterUsers: function () {
