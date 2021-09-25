@@ -100,7 +100,7 @@
                         <div class="text">
                             {{message.message}}
                         </div>
-                        <div class="at" :class="{seen : message.seen}">
+                        <div v-if="getMessageStatus(message) == 'sent'" class="at" :class="{seen : message.seen}">
                             <i class="fas fa-check-double"></i>
                         </div>
                         <div v-if="showMessageMenu.status && showMessageMenu.index == index" class="messageMenu">
