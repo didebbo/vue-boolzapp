@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+* {
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 body, input, button {
     font-family: 'Lato', sans-serif;
     font-size: 1rem;
@@ -20,7 +27,6 @@ body {
     height: 100%;
     cursor: default;
     background-image: linear-gradient(to bottom, #009688 0px 5em, #d7dbd6 0px 100%);
-
 
     .container {
         display: flex;
@@ -296,6 +302,12 @@ body {
                     flex-direction: column;
                     margin: 0.5em 1em;
                     border-radius: 0.5em;
+                    opacity: 0;
+                    transform: scale(0);
+                    animation-name: popMessage;
+                    animation-duration: 0.2s;
+                    animation-timing-function: linear;
+                    animation-fill-mode: forwards;
 
                     &.received {
                         align-self: flex-start;
@@ -565,5 +577,20 @@ body {
             width: 100%;
             height: 100%;
         }
+    }
+}
+
+@keyframes popMessage {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
     }
 }
