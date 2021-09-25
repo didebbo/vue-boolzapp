@@ -203,6 +203,10 @@ const app = new Vue(
                 },
             ]
         },
+        updated: function () {
+            const chat = document.getElementById("chat");
+            chat.scrollTop = chat.scrollHeight;
+        },
         methods: {
             isCurrentContact: function (index) {
                 return index == this.currentContact;
@@ -219,7 +223,6 @@ const app = new Vue(
                         status: 'sent'
                     }
                 );
-                this.scrollToBottom();
                 this.currentMessage = "";
                 this.replayMessage(contact);
             },
@@ -240,7 +243,6 @@ const app = new Vue(
                             setTimeout(() => {
                                 this.contacts[contact].lastSee = new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString('us-US', { hour12: false });
                             }, 1000 * Math.floor(Math.random() * 10 + 1));
-                            this.scrollToBottom();
                         }, 1000 * Math.floor(Math.random() * 10 + 1));
                     }, 1000 * Math.floor(Math.random() * 5 + 1));
                 }, 1000 * Math.floor(Math.random() * 10 + 1));
@@ -258,12 +260,6 @@ const app = new Vue(
                     if (contact.name.includes(this.searchInput)) contact.visible = true;
                     else contact.visible = false;
                 });
-            },
-            scrollToBottom: function () {
-                const chat = document.getElementById("chat");
-                setTimeout(() => {
-                    chat.scrollTop = chat.scrollHeight;
-                }, 0);
             },
             openMenu: function (index) {
                 if (this.showMessageMenu.index == index) this.showMessageMenu.status = !this.showMessageMenu.status;
