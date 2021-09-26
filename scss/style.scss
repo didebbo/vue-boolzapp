@@ -504,10 +504,11 @@ body {
         .container {
 
             .sidebar {
-                display: none;
+                max-width: 0;
+                transition: 0.4s;
 
                 &.show {
-                    display: flex;
+                    max-width: 20%;
                 }
             }
         }
