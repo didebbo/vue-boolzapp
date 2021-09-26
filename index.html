@@ -98,9 +98,10 @@
                     <div v-for="(message, index) in contacts[currentContact].messages"
                         :key="`${currentContact} ${index}`" class="push" :class="getMessageStatus(message)"
                         @click="openMenu(index)">
-                        <div class="text">
+                        <div v-if="!message.audio" class="text">
                             {{message.message}}
                         </div>
+                        <audio v-else :src="message.message" controls></audio>
                         <div v-if="getMessageStatus(message) == 'sent'" class="at" :class="{seen : message.seen}">
                             <i class="fas fa-check-double"></i>
                         </div>
@@ -120,7 +121,7 @@
                     <i class="far fa-smile"></i>
                     <input type="text" v-model="currentMessage" placeholder="Scrivi un messaggio..."
                         @keyup.enter="sendMessage">
-                    <i class="fas fa-microphone"></i>
+                    <i class="fas fa-microphone" @mousedown="startRecord" @mouseup="stopRecord"></i>
                 </div>
             </div>
         </div>

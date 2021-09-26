@@ -326,6 +326,10 @@ body {
                         font-size: 0.7em;
                     }
 
+                    audio {
+                        border-radius: 2em;
+                    }
+
                     .at {
                         align-self: flex-end;
                         font-size: 0.6em;
@@ -390,6 +394,10 @@ body {
                     padding: 0.4em;
                     border: none;
                     cursor: auto;
+                }
+
+                .fa-microphone:active {
+                    color: greenyellow;
                 }
             }
         }

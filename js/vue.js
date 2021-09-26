@@ -2,6 +2,10 @@ const app = new Vue(
     {
         el: "#root",
         data: {
+            mediaRecorder: null,
+            audioChunks: null,
+            audioUrl: null,
+            audio: null,
             currentContact: 0,
             currentMessage: "",
             searchInput: "",
@@ -277,6 +281,38 @@ const app = new Vue(
             toggleDarkMode: function () {
                 this.darkMode = !this.darkMode;
             },
+            startRecord: function () {
+                navigator.mediaDevices.getUserMedia({ audio: true })
+                    .then(stream => {
+                        this.mediaRecorder = new MediaRecorder(stream);
+                        this.mediaRecorder.start();
+                        this.audioChunks = [];
+                        this.mediaRecorder.addEventListener("dataavailable", event => {
+                            this.audioChunks.push(event.data);
+                        });
+                        this.mediaRecorder.addEventListener("stop", () => {
+                            this.audioBlob = new Blob(this.audioChunks);
+                            this.audioUrl = URL.createObjectURL(this.audioBlob);
+                            this.audio = new Audio(this.audioUrl);
+                            console.log(this.audio);
+                            // this.audio.play();
+                            const contact = this.currentContact;
+                            this.contacts[contact].messages.push(
+                                {
+                                    seen: false,
+                                    message: this.audioUrl,
+                                    status: 'sent',
+                                    audio: true
+                                }
+                            );
+                            this.autoScrollMessage();
+                            this.replayMessage(contact);
+                        });
+                    });
+            },
+            stopRecord: function () {
+                this.mediaRecorder.stop();
+            }
         }
     }
 );
