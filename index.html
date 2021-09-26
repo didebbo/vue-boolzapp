@@ -95,8 +95,9 @@
                     </div>
                 </div>
                 <div id="chat" class="content">
-                    <div v-for="(message, index) in contacts[currentContact].messages" :key="index" class="push"
-                        :class="getMessageStatus(message)" @click="openMenu(index)">
+                    <div v-for="(message, index) in contacts[currentContact].messages"
+                        :key="`${currentContact} ${index}`" class="push" :class="getMessageStatus(message)"
+                        @click="openMenu(index)">
                         <div class="text">
                             {{message.message}}
                         </div>

@@ -302,9 +302,9 @@ body {
                     flex-direction: column;
                     margin: 0.5em 1em;
                     border-radius: 0.5em;
-                    animation-duration: 0.2s;
+                    animation-duration: 0.3s;
                     animation-timing-function: linear;
-                    animation-fill-mode: forwards;
+                    animation-fill-mode: forwards; 
 
                     &.received {
                         align-self: flex-start;
@@ -313,8 +313,6 @@ body {
                     }
 
                     &.sent {
-                        position: relative;
-                        right: -100%;
                         align-self: flex-end;
                         background-color: #d5f9ba;
                         animation-name: inFromRight;

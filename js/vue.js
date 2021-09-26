@@ -275,7 +275,7 @@ const app = new Vue(
             },
             toggleDarkMode: function () {
                 this.darkMode = !this.darkMode;
-            }
+            },
         }
     }
 );
