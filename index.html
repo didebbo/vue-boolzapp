@@ -120,7 +120,7 @@
                     <i class="far fa-smile"></i>
                     <input type="text" v-model="currentMessage" placeholder="Scrivi un messaggio..."
                         @keyup.enter="sendMessage">
-                    <i class="fas fa-microphone"></i>
+                    <i class="fas fa-share" @click="sendMessage"></i>
                 </div>
             </div>
         </div>

@@ -211,6 +211,7 @@ const app = new Vue(
                 return message.status;
             },
             sendMessage: function () {
+                if (this.currentMessage == "") return;
                 const contact = this.currentContact;
                 this.contacts[contact].messages.push(
                     {

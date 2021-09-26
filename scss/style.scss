@@ -391,6 +391,14 @@ body {
                     border: none;
                     cursor: auto;
                 }
+
+                .fa-share {
+                    padding: 0.2em;
+                    background-color: #008881;
+                    border-radius: 100%;
+                    color: #fff;
+                    // transform: rotate(45deg);
+                }
             }
         }
     }
@@ -491,6 +499,11 @@ body {
                 input {
                     background-color: hsl(0, 0%, 20%);
                     color: #fff;
+                }
+
+                .fa-share {
+                    background-color: hsl(177, 100%, 17%);
+                    color: hsl(0, 0%, 60%);
                 }
             }
         }
