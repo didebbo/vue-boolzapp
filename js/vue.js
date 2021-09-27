@@ -266,7 +266,7 @@ const app = new Vue(
             },
             filterUsers: function () {
                 this.contacts.forEach((contact) => {
-                    if (contact.name.includes(this.searchInput)) contact.visible = true;
+                    if (contact.name.toLowerCase().includes(this.searchInput.toLowerCase())) contact.visible = true;
                     else contact.visible = false;
                 });
             },
