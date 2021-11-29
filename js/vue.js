@@ -208,13 +208,13 @@ const app = new Vue(
             ]
         },
         methods: {
-            isCurrentContact: function (index) {
+            isCurrentContact(index) {
                 return index == this.currentContact;
             },
-            getMessageStatus: function (message) {
+            getMessageStatus(message) {
                 return message.status;
             },
-            sendMessage: function () {
+            sendMessage() {
                 if (this.currentMessage == "") return;
                 const contact = this.currentContact;
                 this.contacts[contact].messages.push(
@@ -228,7 +228,7 @@ const app = new Vue(
                 this.currentMessage = "";
                 this.replayMessage(contact);
             },
-            replayMessage: function (contact) {
+            replayMessage(contact) {
                 setTimeout(() => {
                     this.contacts[contact].lastSee = "Online";
                     setTimeout(() => {
@@ -250,7 +250,7 @@ const app = new Vue(
                     }, 1000 * Math.floor(Math.random() * 5 + 1));
                 }, 1000 * Math.floor(Math.random() * 10 + 1));
             },
-            seeMessageLoop: function (contact) {
+            seeMessageLoop(contact) {
                 const loop = setInterval(() => {
                     if (this.contacts[this.currentContact].lastSee != "Online") clearInterval(loop);
                     this.contacts[contact].messages.forEach((message) => {
@@ -258,30 +258,30 @@ const app = new Vue(
                     });
                 }, 0);
             },
-            autoScrollMessage: function () {
+            autoScrollMessage() {
                 setTimeout(() => {
                     const chat = document.getElementById("chat");
                     chat.scrollTop = chat.scrollHeight;
                 }, 0);
             },
-            filterUsers: function () {
+            filterUsers() {
                 this.contacts.forEach((contact) => {
                     if (contact.name.toLowerCase().includes(this.searchInput.toLowerCase())) contact.visible = true;
                     else contact.visible = false;
                 });
             },
-            openMenu: function (index) {
+            openMenu(index) {
                 if (this.showMessageMenu.index == index) this.showMessageMenu.status = !this.showMessageMenu.status;
                 else this.showMessageMenu.status = true;
                 if (this.showMessageMenu.status) this.showMessageMenu.index = index;
             },
-            deleteMessage: function (index) {
+            deleteMessage(index) {
                 this.contacts[this.currentContact].messages.splice(index, 1);
             },
-            toggleDarkMode: function () {
+            toggleDarkMode() {
                 this.darkMode = !this.darkMode;
             },
-            startRecord: function () {
+            startRecord() {
                 navigator.mediaDevices.getUserMedia({ audio: true })
                     .then(stream => {
                         this.mediaRecorder = new MediaRecorder(stream);
@@ -310,7 +310,7 @@ const app = new Vue(
                         });
                     });
             },
-            stopRecord: function () {
+            stopRecord() {
                 this.mediaRecorder.stop();
             }
         }
